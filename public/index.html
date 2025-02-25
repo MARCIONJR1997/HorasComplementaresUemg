@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Lançamento de Horas Complementares</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Container de Autenticação -->
+  <div id="auth-container" class="container">
+    <h2>Login / Registro</h2>
+    <form id="authForm">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit" id="authButton">Login</button>
+      <button type="button" id="registerButton">Registrar</button>
+    </form>
+  </div>
+
+  <!-- Container Principal -->
+  <div id="main-container" class="container" style="display: none;">
+    <h1>Lançamento de Horas Complementares</h1>
+    <button id="logoutButton">Sair</button> <!-- Botão de Logout -->
+    <form id="activityForm" enctype="multipart/form-data">
+      <label for="name">Nome da Atividade:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="category">Categoria:</label>
+      <select id="category" name="category" required>
+        <option value="">Selecione uma categoria</option>
+        <option value="ensino">Ensino</option>
+        <option value="extensao">Extensão</option>
+        <option value="pesquisa">Pesquisa</option>
+      </select>
+      <label for="type">Tipo de Atividade:</label>
+      <select id="type" name="type" required disabled>
+        <option value="">Selecione um tipo</option>
+      </select>
+      <label for="hours">Total de Horas da Atividade:</label>
+      <input type="number" id="hours" name="hours" min="1" required>
+      <label for="attachment">Anexar Comprovante:</label>
+      <input type="file" id="attachment" name="attachment" accept=".pdf,.jpg,.png" required>
+      <button type="submit">Adicionar Atividade</button>
+    </form>
+    <div id="summary-status-container">
+      <div id="summary">
+        <h2>Resumo de Horas</h2>
+        <p><strong>Ensino:</strong> <span id="ensinoTotal">0</span> / 90 horas</p>
+        <p><strong>Extensão:</strong> <span id="extensaoTotal">0</span> / 90 horas</p>
+        <p><strong>Pesquisa:</strong> <span id="pesquisaTotal">0</span> / 90 horas</p>
+        <p><strong>Total Geral:</strong> <span id="totalGeral">0</span> / 270 horas</p>
+      </div>
+      <div id="status">
+        <h2>Status do Aluno</h2>
+        <p><strong>Total Geral:</strong> <span id="totalGeralStatus">0</span> / 150 horas mínimas</p>
+        <p><strong>Distribuição por Categoria:</strong></p>
+        <ul>
+          <li>Ensino: <span id="ensinoStatus">0</span> horas</li>
+          <li>Extensão: <span id="extensaoStatus">0</span> horas</li>
+          <li>Pesquisa: <span id="pesquisaStatus">0</span> horas</li>
+        </ul>
+        <p id="statusMessage"></p>
+      </div>
+    </div>
+    <div id="messages"></div>
+    <h3>Atividades Adicionadas</h3>
+    <table id="activitiesTable">
+      <thead>
+        <tr>
+          <th>Nome da Atividade</th>
+          <th>Categoria</th>
+          <th>Tipo de Atividade</th>
+          <th>Horas Informadas</th>
+          <th>Horas Aproveitadas</th>
+          <th>Anexo</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Atividades serão adicionadas aqui -->
+      </tbody>
+    </table>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "horascomplementaresmarcio"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "horascomplementaresmarcio-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
